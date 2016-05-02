@@ -3,7 +3,7 @@
 Como distribuir el backend desarrollado en Strongloop para que funcione correctamente en Azure.
 
 #### 1
-Partimos de una estructura similar a esta, es un estándar cuando se crea una app con:
+Partimos de crear un proyecto con:
 ##### slc loopback
 
 #### 2
@@ -11,23 +11,30 @@ Modificamos en package.json:
 
 Modificamos las líneas, “main” y “start”, luego agregamos “engines”, con la versión de node y npm que azure debe utilizar.
 
+```sh
 “main”: “./server/server.js”,
 “start”: “node ./app.js”,
+```
 
+```sh
 “engines”: {
 “node”: “5.3.0”,
 “npm” : “3.3.12”
 },
+```
 
 #### 3
 agregamos app.js
 
+```sh
 var app = require(‘./server/server.js’)
 app.start();
+```
 
 #### 4
 Cuando subimos la app con git, vamos a poder ver como va generando y bajando los paquetes que se encuentran en el package.json:
 
+```sh
 remote: Copying file: ‘server\server.js’
 remote: Copying file: ‘server\boot\root.js’
 remote: Using start-up script app.js from package.json.
@@ -61,8 +68,11 @@ remote: Running post deployment command(s)…
 remote: Deployment successful.
 To https://dsinfo@dsinfo-back-end.scm.azurewebsites.net:443/dsinfo-back-end.git
 * [new branch] master -> master
+```
 
 #### 5
 Chequear del mismo modo que lo hacemos local:
 
+```sh
 http://localhost/explorer
+```
