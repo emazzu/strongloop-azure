@@ -75,10 +75,9 @@ Chequear del mismo modo que lo hacemos local:
 
 ```sh
 http://localhost/
-```
-```sh
 {"started":"2016-05-02T18:24:38.144Z","uptime":3198.383}
 ```
+
 ```sh
 http://localhost/explorer
 ```
